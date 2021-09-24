@@ -117,34 +117,34 @@ def PlaceOrderAtMarket(position,symbol,amount,act_price_percent=2,cb=3,stoploss_
             print(e.error_message)
 
 
-        # order trail stop
-        try:
-            result = request_client.post_order(
-                symbol = symbol ,
-                side = OrderSide.SELL ,
-                positionSide = "BOTH" ,
-                ordertype = OrderType.TRAILING_STOP_MARKET,
-                activationPrice=act_price_LONG,
-                callbackRate= cb,
-                reduceOnly = True ,
-                quantity = str(size)
-            )
-        except Exception as e:
-            print(e.error_message)
+        # # order trail stop
+        # try:
+        #     result = request_client.post_order(
+        #         symbol = symbol ,
+        #         side = OrderSide.SELL ,
+        #         positionSide = "BOTH" ,
+        #         ordertype = OrderType.TRAILING_STOP_MARKET,
+        #         activationPrice=act_price_LONG,
+        #         callbackRate= cb,
+        #         reduceOnly = True ,
+        #         quantity = str(size)
+        #     )
+        # except Exception as e:
+        #     print(e.error_message)
         
-        # order stop loss
-        try:
-            result = request_client.post_order(
-                symbol = symbol ,
-                side = OrderSide.SELL ,
-                positionSide = "BOTH" ,
-                ordertype = OrderType.STOP_MARKET,
-                stopPrice = str(sl),
-                reduceOnly=True,
-                quantity = str(size)
-            )
-        except Exception as e:
-            print(e.error_message)
+        # # order stop loss
+        # try:
+        #     result = request_client.post_order(
+        #         symbol = symbol ,
+        #         side = OrderSide.SELL ,
+        #         positionSide = "BOTH" ,
+        #         ordertype = OrderType.STOP_MARKET,
+        #         stopPrice = str(sl),
+        #         reduceOnly=True,
+        #         quantity = str(size)
+        #     )
+        # except Exception as e:
+        #     print(e.error_message)
     
     elif position == "SHORT":
 
@@ -167,33 +167,33 @@ def PlaceOrderAtMarket(position,symbol,amount,act_price_percent=2,cb=3,stoploss_
             print(e.error_message)
 
 
-        try:
-            result = request_client.post_order(
-                symbol = symbol ,
-                side = OrderSide.BUY ,
-                positionSide = "BOTH" ,
-                ordertype = OrderType.TRAILING_STOP_MARKET,
-                activationPrice=act_price_SHORT,
-                callbackRate= cb,
-                reduceOnly = True ,
-                quantity = str(size)
-            )
+        # try:
+        #     result = request_client.post_order(
+        #         symbol = symbol ,
+        #         side = OrderSide.BUY ,
+        #         positionSide = "BOTH" ,
+        #         ordertype = OrderType.TRAILING_STOP_MARKET,
+        #         activationPrice=act_price_SHORT,
+        #         callbackRate= cb,
+        #         reduceOnly = True ,
+        #         quantity = str(size)
+        #     )
 
-        except Exception as e:
-            print(e.error_message)
+        # except Exception as e:
+        #     print(e.error_message)
         
-        try:
-            result = request_client.post_order(
-                symbol = symbol ,
-                side = OrderSide.BUY ,
-                positionSide = "BOTH" ,
-                ordertype = OrderType.STOP_MARKET,
-                stopPrice = str(sl),
-                reduceOnly=True,
-                quantity = str(size)
-            )
-        except Exception as e:
-            print(e.error_message)
+        # try:
+        #     result = request_client.post_order(
+        #         symbol = symbol ,
+        #         side = OrderSide.BUY ,
+        #         positionSide = "BOTH" ,
+        #         ordertype = OrderType.STOP_MARKET,
+        #         stopPrice = str(sl),
+        #         reduceOnly=True,
+        #         quantity = str(size)
+        #     )
+        # except Exception as e:
+        #     print(e.error_message)
 
 
     """
