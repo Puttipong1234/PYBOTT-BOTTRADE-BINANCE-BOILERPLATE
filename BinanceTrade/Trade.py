@@ -6,7 +6,7 @@ try :
 except Exception:
     from config_prod import API_BINANCE_KEY , API_BINANCE_SECRET
 
-from DB.Firebasedb import GetDataBotsetting
+# from DB.Firebasedb import GetDataBotsetting
 
 client = Client( API_BINANCE_KEY , API_BINANCE_SECRET )
 
@@ -21,14 +21,15 @@ def ReceiveSignals(signal_data_dict):
     }
     """
 
-    Signal_Type = signal_data_dict["message"].split(" ")[0]
-    Signal_Side = signal_data_dict["message"].split(" ")[1]
-    Signal_Symbol = signal_data_dict["symbol"]
+    Signal_Type = signal_data_dict["ACTION"].split(" ")[0]
+    Signal_Side = signal_data_dict["ACTION"].split(" ")[1]
+    Signal_Size = 50
+    Signal_Symbol = "BTCUSDT"
 
     msg = ""
 
     # ให้เป็น USDT 
-    amount = float(GetDataBotsetting(key="Positionsize")) # 100 usd
+    amount = Signal_Size
 
     if Signal_Type == "OPEN":
         PlaceOrderAtMarket(position=Signal_Side, symbol=Signal_Symbol, amount=amount, lev = 5)

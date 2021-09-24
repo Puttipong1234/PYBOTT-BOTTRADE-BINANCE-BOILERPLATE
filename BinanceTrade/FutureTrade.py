@@ -327,7 +327,8 @@ def ClosePositionAtMarket(symbol,positionSide):
             side=OrderSide.SELL,
             ordertype=OrderType.MARKET,
             positionSide="BOTH",
-            quantity=str(abs(float(amount)))
+            quantity=str(abs(float(amount))),
+            reduceOnly=True
         )
     
     elif positionSide == "SHORT":
@@ -336,6 +337,7 @@ def ClosePositionAtMarket(symbol,positionSide):
             side=OrderSide.BUY,
             ordertype=OrderType.MARKET,
             positionSide="BOTH",
-            quantity=str(abs(float(amount)))
+            quantity=str(abs(float(amount))),
+            reduceOnly=True
         )
 

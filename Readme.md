@@ -20,3 +20,9 @@
 * Firebase : https://pypi.org/project/firebase/
 * binance Future Ref : https://binance-docs.github.io/apidocs/futures/en/#change-log
 * binance Future SDK python with Example : https://github.com/Binance-docs/Binance_Futures_python
+
+## SET ENV VAR
+heroku config:set API_BINANCE_KEY=xxx
+heroku config:set API_BINANCE_SECRET=xxx
+
+heroku config:set LINE_NOTIFY_TOKEN=xxx
