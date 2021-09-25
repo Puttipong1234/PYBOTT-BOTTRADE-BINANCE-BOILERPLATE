@@ -1,3 +1,4 @@
+from math import e
 from binance.client import Client
 from BinanceTrade.FutureTrade import *
 
@@ -42,11 +43,14 @@ def ReceiveSignals(signal_data_dict):
 
     if Signal_Type == "OPEN":
         # Close before open
-        ClosePositionAtMarket(symbol=Signal_Symbol, positionSide=CLOSE_side)
+        try:
+            ClosePositionAtMarket(symbol=Signal_Symbol, positionSide=CLOSE_side)
+        except:
+            print(e)
         # open pos (NOTPSL)
         PlaceOrderAtMarket(position=Signal_Side, symbol=Signal_Symbol, amount=amount, lev = Signal_Lev)
         msg = "ทำการ {} Position ในฝั่ง {} คู่สินค้า {} ".format(Signal_Type,Signal_Side,Signal_Symbol)
-    
+        
     elif Signal_Type == "TPSL":
         # Close Position by the signal side ....
         ClosePositionAtMarket(symbol=Signal_Symbol, positionSide=Signal_Side)

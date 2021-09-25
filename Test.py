@@ -2,11 +2,14 @@ from BinanceTrade.FutureTrade import *
 from BinanceTrade.Trade import ReceiveSignals
 
 if __name__ == "__main__":
-    # data = {
-    #     "message" : "CLOSE LONG",
-    #     "symbol" : "BTCUSDT"
-    #     }
-    # msg = ReceiveSignals(signal_data_dict= data )
+    data = {
+        "ACTION" : "TPSL SHORT",
+        "LEV" : "50",
+        "SYMBOL":"BTCUSDT",
+        }
+
+
+    msg = ReceiveSignals(signal_data_dict= data )
 
     # from line.notify import notify
     # notify.send("TEST")
@@ -20,11 +23,11 @@ if __name__ == "__main__":
     # balance = getAssetUSDT()
     # print(balance)
 
-    PlaceOrderAtMarket(
-        position='SHORT',
-        symbol='SOLUSDT', # 0.000....
-        amount=15,
-    )
+    # PlaceOrderAtMarket(
+    #     position='SHORT',
+    #     symbol='SOLUSDT', # 0.000....
+    #     amount=15,
+    # )
 
     # res = getPositionbySymbol(Symbol="BTCUSDT")
     # print(res['positionAmt'])
