@@ -45,15 +45,21 @@ def ReceiveSignals(signal_data_dict):
         # Close before open
         try:
             ClosePositionAtMarket(symbol=Signal_Symbol, positionSide=CLOSE_side)
-        except:
+        except Exception as e:
             print(e)
+            msg += str(e)
         # open pos (NOTPSL)
-        PlaceOrderAtMarket(position=Signal_Side, symbol=Signal_Symbol, amount=amount, lev = Signal_Lev)
-        msg = "ทำการ {} Position ในฝั่ง {} คู่สินค้า {} ".format(Signal_Type,Signal_Side,Signal_Symbol)
+        try:
+            PlaceOrderAtMarket(position=Signal_Side, symbol=Signal_Symbol, amount=amount, lev = Signal_Lev)
+            msg = "ทำการ {} Position ในฝั่ง {} คู่สินค้า {} ".format(Signal_Type,Signal_Side,Signal_Symbol)
+        except:
+            msg += str(e)
         
     elif Signal_Type == "TPSL":
         # Close Position by the signal side ....
-        ClosePositionAtMarket(symbol=Signal_Symbol, positionSide=Signal_Side)
-        msg = "ทำการ {} Position ในฝั่ง {} คู่สินค้า {} ".format(Signal_Type,Signal_Side,Signal_Symbol)
-    
+        try:
+            ClosePositionAtMarket(symbol=Signal_Symbol, positionSide=Signal_Side)
+            msg = "ทำการ {} Position ในฝั่ง {} คู่สินค้า {} ".format(Signal_Type,Signal_Side,Signal_Symbol)
+        except Exception as e:
+            msg += str(e)
     return msg

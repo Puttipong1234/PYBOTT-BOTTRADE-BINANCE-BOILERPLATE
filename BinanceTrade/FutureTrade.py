@@ -94,9 +94,6 @@ def PlaceOrderAtMarket(position,symbol,amount,act_price_percent=2,cb=3,stoploss_
     current_price = float(get_market_data_by_symbol(symbol)["markPrice"])
     amount = amount * lev
     change_leverage(symbol=symbol,lev=lev)
-    print("=================")
-    print(amount)
-    print("=================")
     if position == "LONG":
 
         act_price_LONG , sl , size = calForPosition(price=current_price,
@@ -105,9 +102,6 @@ def PlaceOrderAtMarket(position,symbol,amount,act_price_percent=2,cb=3,stoploss_
                                                     side="LONG",
                                                     amount_usdt=amount
                                                 )
-
-        # size fix usdt อยู่แล้ว
-        size = amount
 
         
         # เปิด position
