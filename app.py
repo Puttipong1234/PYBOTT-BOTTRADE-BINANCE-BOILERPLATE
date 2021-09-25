@@ -20,10 +20,10 @@ def SIGNALS_RECEIVER():
         json_msg = json.loads(msg)
 
         # if GetDataBotsetting(key="run") == True:
-        #     # get data firebase เพื่อดูว่า Autotrading = True??
-        # msg = ReceiveSignals(signal_data_dict = json_msg)
+            # get data firebase เพื่อดูว่า Autotrading = True??
+        msg = ReceiveSignals(signal_data_dict = json_msg)
 
-        # sendmsg(msg=msg)
+        sendmsg(msg=msg)
 
     return "200"
 
