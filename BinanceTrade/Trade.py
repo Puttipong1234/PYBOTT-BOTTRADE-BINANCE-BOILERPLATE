@@ -32,7 +32,8 @@ def ReceiveSignals(signal_data_dict):
     amount = Signal_Size
 
     if Signal_Type == "OPEN":
-        PlaceOrderAtMarket(position=Signal_Side, symbol=Signal_Symbol, amount=amount, lev = 5)
+        # ClosePositionAtMarket(symbol=Signal_Symbol, positionSide=Signal_Side)
+        PlaceOrderAtMarket(position=Signal_Side, symbol=Signal_Symbol, amount=amount, lev = 25)
         msg = "ทำการ {} Position ในฝั่ง {} คู่สินค้า {} ".format(Signal_Type,Signal_Side,Signal_Symbol)
     
     elif Signal_Type == "CLOSE":
