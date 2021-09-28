@@ -1,4 +1,4 @@
-## Procedure Production
+## วิธีการใช้งานเพื่อรันบอท Procedure Production
 ใช้ Command line ในการใส่คำสั่งตามเนื้อหานะครับ
 
 ### STEP 1 
