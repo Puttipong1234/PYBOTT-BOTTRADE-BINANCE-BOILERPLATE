@@ -33,7 +33,7 @@ SET ENV VAR พิมพ์คำสั่งใน Commandline โดยนำ 
 ```
 heroku config:set API_BINANCE_KEY=xxx
 heroku config:set API_BINANCE_SECRET=xxx
-heroku config:set LINE_NOTIFY_TOKEN=UPb02B1GXPIxerGrE6ivMy0Rt24XZN8cR9yz73rlYDD
+heroku config:set LINE_NOTIFY_TOKEN=xxx
 ```
 
 ### STEP 4
